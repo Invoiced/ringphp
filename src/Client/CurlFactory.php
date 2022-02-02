@@ -74,6 +74,8 @@ class CurlFactory
     ) {
         if (isset($response['transfer_stats']['url'])) {
             $response['effective_url'] = $response['transfer_stats']['url'];
+        } else if (!isset($response['effective_url'])) {
+            $response['effective_url'] = '';
         }
 
         if (!empty($headers)) {
